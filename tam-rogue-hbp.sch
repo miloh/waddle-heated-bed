@@ -135,5 +135,5 @@ refdes=CONN1
 T 53500 38350 5 10 0 0 0 0 1
 device=1500363
 T 53500 38550 5 10 0 0 0 0 1
-footprint=NA
+footprint=none
 }
