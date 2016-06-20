@@ -128,12 +128,20 @@ T 54600 36300 9 12 1 0 0 0 1
 HBP Thermistor
 T 54600 35700 9 12 1 0 0 0 1
 HBP Supply
-C 53200 35100 1 0 0 PhoenixContact_1500363.sym
+C 53200 35100 1 0 0 phoenixcontact_1500363.sym
 {
 T 53900 37000 5 10 1 1 0 6 1
-refdes=CONN1
+refdes=P?
 T 53500 38350 5 10 0 0 0 0 1
 device=1500363
 T 53500 38550 5 10 0 0 0 0 1
 footprint=none
+T 54400 37200 5 10 1 1 0 0 1
+documentation=PhoenixContactM8_4contact_PlugPigtail
+T 54400 37000 5 10 1 1 0 0 1
+comment=M8 Circular Connector
+T 54400 36800 5 10 1 1 0 0 1
+comment=SACC-E-M-8FS-4CON-M8/0,5
+T 54400 36600 5 10 1 1 0 0 1
+comment=Mouser PN#651-1406013
 }
