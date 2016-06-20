@@ -122,7 +122,7 @@ C 57500 35200 1 0 0 ssrelay-spst-jgx-15da.sym
 T 59600 36775 5 10 0 0 0 0 1
 device=LCB110
 T 57800 36950 5 10 1 1 0 0 1
-refdes=U?
+refdes=U1
 }
 N 56700 36700 56700 35600 4
 N 57500 35700 57100 35700 4
@@ -137,7 +137,7 @@ C 54800 32000 1 0 0 switch-spdt-2.sym
 T 55210 32850 5 10 0 0 0 0 1
 device=Dual_Two_Way_Switch
 T 55210 33500 5 10 1 1 0 0 1
-refdes=S?
+refdes=S1
 T 55110 32300 5 10 0 0 0 0 1
 footprint=CONNECTOR 2 3
 T 55500 33700 5 10 0 0 0 0 1
