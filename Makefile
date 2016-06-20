@@ -1,7 +1,7 @@
 #makefile for gaf-geda
 
 # Input DIR using this directory structure cleans things up
-NAME= tam-rogue-hpb
+NAME= tam-rogue-hbp
 #
 SHELL=/bin/bash
 SCH=sch
@@ -28,7 +28,10 @@ layout-ps = $(patsubst %.pcb, $(REV)-%.pcb.ps, $(pcb-files))
 # $<  is the automatic variable for the target
 .PHONY: list-gedafiles 
 list-gedafiles:
-	#Nothing requested, default goal is to list gedafiles located in the top level directory
+	#Nothing requested, default goal is to list details
+	# project name 
+	@$(foreach asset, $(NAME), echo $(NAME);)
+	# geda files in the top directory level
 	@$(foreach asset, $(pcb-files), echo $(asset);)
 	@$(foreach asset, $(schematic-files), echo $(asset);)
 .PHONY: ps gerbers osh-park-gerbers clean
@@ -106,4 +109,4 @@ hackvana-gerbers.zip : hackvana-gerbers
 	zip -j $@ hackvana-gerbers/*
 	@echo "Be sure to add a version number to the zip file name"
 clean:
-	rm -f *~ *- *.backup *.new.pcb *.png *.bak *.gbr *.cnc *.ps *{pcb,sch}.pdf
+	rm -f *~ *- *.backup *.new.pcb *.png *.bak *.gbr *.cnc *.ps, *{pcb,sch}.pdf, *.csv
