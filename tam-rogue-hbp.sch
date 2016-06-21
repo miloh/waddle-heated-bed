@@ -137,7 +137,7 @@ device=1500363
 T 53500 38550 5 10 0 0 0 0 1
 footprint=none
 T 54400 37200 5 10 1 1 0 0 1
-documentation=PhoenixContactM8_4contact_PlugPigtail
+documentation=PhoenixContactM8_4contact_PlugPigtail.pdf
 T 54400 37000 5 10 1 1 0 0 1
 comment=M8 Circular Connector
 T 54400 36800 5 10 1 1 0 0 1
