@@ -1,7 +1,7 @@
 #makefile for gaf-geda
 
 # Input DIR using this directory structure cleans things up
-NAME= tam-rogue-hbp
+NAME= heated-bed 
 #
 SHELL=/bin/bash
 SCH=sch

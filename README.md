@@ -1,6 +1,11 @@
-Rogue HBP
-=========
-rogue heated build platform for 2014 Series 1
+Heated Bed
+==========
+Heated bed platform for 3D printers
+
+- Mains and SSR driven
+- overcurrent fused
+- overtemp fused
+- extensible to addtional sensors or safety features
 
 
 Using the template to start a project
