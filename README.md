@@ -1,5 +1,5 @@
-Heated Bed
-==========
+Waddle Heated Bed
+==================
 Heated bed platform for 3D printers
 
 - Mains and SSR driven

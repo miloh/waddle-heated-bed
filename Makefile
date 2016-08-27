@@ -1,7 +1,7 @@
 #makefile for gaf-geda
 
 # Input DIR using this directory structure cleans things up
-NAME= heated-bed 
+NAME= waddle-heated-bed 
 #
 SHELL=/bin/bash
 SCH=sch
@@ -126,4 +126,4 @@ endif
 	# this target archives the repo from the current tag
 	git archive HEAD --format=zip --prefix=$(REV)/  > $(REV).zip
 clean:
-	rm -f *~ *- *.backup *.new.pcb *.png *.bak *.gbr *.cnc *.ps *{pcb,sch}.pdf *.csv *.xy
+	rm -f *~ *- *.backup *.new.pcb *.png *.bak *.gbr *.cnc *.ps *{pcb,sch}.pdf *.csv *.xy *.zip
