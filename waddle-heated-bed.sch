@@ -10,7 +10,7 @@ auth=$Author$
 T 53900 31000 15 10 1 1 0 0 1
 fname=$Source$
 T 56900 31400 15 14 1 1 0 4 1
-title=TAM-Rogue HBP
+title=waddle-heated-bed
 }
 C 56400 32400 1 90 0 fuse-1.sym
 {
