@@ -1,6 +1,6 @@
 Waddle Heated Bed
 ==================
-Heated bed platform for 3D printers
+Heated bed platform for 3D printers (originally prototyped on the Series 1 2014 a 3D printer with a descending build plate design)
 
 - Mains and SSR driven
 - overcurrent fused
@@ -8,131 +8,35 @@ Heated bed platform for 3D printers
 - extensible to addtional sensors or safety features
 
 
-Using the template to start a project
--------------------------------------
+* There are more safety features than on most heated beds (electrical fuse built into suggested plug, resetable temp fuse).
+* The safety features allow safe use of a more powerful heater akin to a hotplate with an upper limit around 250C
+* The heated bed is more of an independant unit, receiving only control and thermal signals from the control boardt
+* parts are chosen to avoid mechanical keepaway zones on the S12014 
 
-Clone the project and skip ahead, or from github you can fork the template, grab
-a copy of the repo and use it as follows: (github, my account 'miloh', and the
-throwaway name 'newproject' are used as examples)
+Instructions
+------------
+This is a rough guide of parts and connections --  The schematic and the README are the ultimate guides to this upgrade!
 
-````
-git clone git@github.com:miloh/git-gaf-template.git newproject
-cd newproject
-````
-make a few commits, or go directly to a git server and/or github, create newproject. 
+* This is designed to connect to the underside of the Series 1 2014 build plate with a ~1 inch profile so there is no chance of the Z axis plate descending into keep away zones and pinching the control connections. 
+* For a prototype, I used a mini-height PSU case to house the C13 connector, SSR, and the wiring.
+* Everything should be disconnectable from each other to allow for regular servicing and upgrades to your S12014 Machine Machine
+   - controller electrical connects (internally detachable)
+   - the acrylic tray cover with the phoenix cable base
+   - the build plate unit with heat bed on top
 
-````
-git remote rm origin
-git remote add origin git@github.com:miloh/newproject.git
-git push -u origin master
-```` 
+Not included: 
+- Firmware recommendation (changes to Marlin etc) 
+- Crimpy/Contacts wiring notes
 
-gEDA Terminology & Description
-------------------------------
 
-gEDA is a suite of tools 
-* gschem - electronic schematic editor that has some operational similarity to old versions of OrCAD
-* gnetlist outputs a number of netlist formats from gschem, part of the sim workflow 
-* schdiff - works as a git difftool and uses imagemagick to generate visual diffs of gschem schematics
-* refdes\_renum a tool for giving unique 'reference designations' to symbols in a sch file
-* gaf stands for gschem & friends, an eponymous cli for use with gschem & friends.
-* spice tools -- thofficial spice package for use with geda-gaf. with complete symbols, gnetlist creates spice compatible netwlist
-* pcb, aka PCB or what I'll call gEDA's PCB - a powerful and fun floss circuit layout program
-* other projects are anything I've forgotten
+Possible Updates 
+----------------
+- Aluminum plate drill guide for the sub body attachements: housing, SSR, thermal fuse, thermal sensor.
+- Mechanical sub-body design to house these parts
+- Built in temp display and timer (minimal non uc preferred
+- Built in temp control (requires addition of uc or add'l ctrl/comm channel) 
+- Expand temp sensor network
+- heater Region control 
 
-Project Hierarchy and using gnu Make
-------------------------------------
-The main directory contains templates for a schematic built using gschem: and
-layout files for geda's PCB:
 
-````
-*.sch
-````
-````
-*.pcb
-````
-
-These all get processed using Make, with the included Makefile. Note this
-Makefile hasn't been tested with more than a few versions of gnu make. 
-
-To use the makefile, you run make and supply a goal. The following list is from
-a system with tab completion, which supplies the user with the list of goals
-available from the makefile.
-Some of these will require user actions, like providing the correct filetypes
-in the local directory, and
-ensuring they use the cvs-based keywords that sed will process the files with,
-and using git to tag versions.
-
-````
-clean                  gnetlist-bom          hackvana-gerbers.zip  Makefile              
-schematic-template.sch osh-park-gerbers.zip  pdf                   gerbers               
-hackvana-gerbers       list-gedafiles        layout-template.pcb 
-osh-park-gerbers       pcb-bom               ps
-````
-
-This makefile uses the commonly available sed and echo, the less available 'gaf'
-project from geda, and is intended for use by a hardware designer using gschem
-for schematic capture and geda pcb for layout. 
-
-Finally, it also uses git, specifically the git-tag comand to template the
-keywords in the schematic and layout templates. The templates should be availabe
-for checkout from the early revisions of the project). Versions released for
-manufacturing should include annotated version tags using semver (vXX.YY.ZZ,
-XX=major YY=minor ZZ=patch)
-
-Bug reports are welcome, create issues on github or send them to miloh at
-froggytoad dot net
-
-Git submodules
---------------
-This project uses git submodules for libraries of schematic parts and
-footprints. 
-
-First, update the git submodules after cloning the project and regularly during
-development unless you want to freeze the schematics and parts to a specific
-branch (which may totally make sense for some completed projects).
-
-````
-git submodule update --init --recursive
-````
-
-Updating submodules is important to remember, because when checking out dev
-branches or earlier tags of the project, you will have to update the submodules
-to get the correct version of parts (symbols and footprints) used during
-development. The following command should also be used after checking out
-earlier versions to keep the project synced
-
-````
-git submodule update --init  --recursive
-````
-
-Note that gschem should use a local file 'gafrc' with a line in scheme that
-configures the directory for local symbol libraries.
-
-PCB preferences must be changed to find local footprints, I do this in the PCB
-gui currently but I imagine there are other ways.
-
-Using schdiff with git's difftool
----------------------------------
-schdiff allows the user to compare schematics from different versions.
-
-example showing a diff from the current HEAD to 30 commits back:
-
-````
-git difftool -x schdiff HEAD~30 project.sch
-````
-
-Squashing the history after copying the template
-------------------------------------------------
-
-The history of this template project doesn't need to be part of the history a specific project that uses it
-To squash the history, you can rebase back to the first commit.
-
-````
-git rebase -i `git rev-list --max-parents=0 HEAD` 
-````
-Squash everything but the top, change the comments as you see fit. Read up on git rebase 
-
-````
-git rebase --help
-````
+This project is part of a geda/gaf template for electronics projects, basic info on that available at: [geda-git-template](https://github.com/miloh/geda-git-template)
